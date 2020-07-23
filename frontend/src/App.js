@@ -6,10 +6,30 @@ import "./style/app-style.css"
 class App extends Component {
     state = {
         subscriptions: [
-            {id: "Facebook", value: "9.99€", imageUrl: 'https://picsum.photos/50',},
-            {id: "Github", value: "22€", imageUrl: 'https://picsum.photos/50',},
-            {id: "World of Warcraft", value: "12€", imageUrl: 'https://picsum.photos/50',},
-            {id: "Netflix", value: "0.25€", imageUrl: 'https://picsum.photos/50',}
+            {
+                id: "Facebook",
+                value: "9.99€",
+                status: "Active",
+                imageUrl: 'https://picsum.photos/50'
+            },
+            {
+                id: "Github",
+                value: "22€",
+                status: "Active",
+                imageUrl: 'https://picsum.photos/50'
+            },
+            {
+                id: "World of Warcraft",
+                value: "12€",
+                status: "Active",
+                imageUrl: 'https://picsum.photos/50'
+            },
+            {
+                id: "Netflix",
+                value: "0.25€",
+                status: "disabled",
+                imageUrl: 'https://picsum.photos/50'
+            }
         ]
     };
 
@@ -25,7 +45,7 @@ class App extends Component {
                     <div className="bg-light" id="sidebar-wrapper">
                         <NavBar />
                     </div>
-                    <div id="page-content-wrapper" className="m-4">
+                    <div id="page-content-wrapper" className="m-2">
                         <Subscriptions
                             subscriptions={this.state.subscriptions}
                             onReset={this.handleReset}
