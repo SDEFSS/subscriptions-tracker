@@ -23,7 +23,7 @@ class Subscription extends Component {
                 <span className="col-sm-2 mt-3  ml-5">{value}</span>
                 <button
                     onClick={() => onDelete(id)}
-                    className="btn btn-danger btn-sm">
+                    className="btn btn-danger btn-sm mt-2 mb-2">
                     delete
                 </button>
             </div>
