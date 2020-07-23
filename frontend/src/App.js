@@ -7,25 +7,29 @@ class App extends Component {
     state = {
         subscriptions: [
             {
-                id: "Facebook",
+                id: 0,
+                name: "Facebook",
                 value: "9.99€",
-                status: "Active",
+                status: "active",
                 imageUrl: 'https://picsum.photos/50'
             },
             {
-                id: "Github",
+                id: 1,
+                name: "Github",
                 value: "22€",
-                status: "Active",
+                status: "active",
                 imageUrl: 'https://picsum.photos/50'
             },
             {
-                id: "World of Warcraft",
+                id:2,
+                name: "World of Warcraft",
                 value: "12€",
-                status: "Active",
+                status: "active",
                 imageUrl: 'https://picsum.photos/50'
             },
             {
-                id: "Netflix",
+                id:3,
+                name: "Netflix",
                 value: "0.25€",
                 status: "disabled",
                 imageUrl: 'https://picsum.photos/50'
@@ -33,8 +37,11 @@ class App extends Component {
         ]
     };
 
-    handleDelete = (subscriptionId) => {
-        const subscriptions = this.state.subscriptions.filter(c => c.id !== subscriptionId);
+    handleActivation = (subscriptionId) => {
+        const subscriptions = [...this.state.subscriptions];
+        let subscriptionStatus = subscriptions[subscriptionId].status;
+        if (subscriptionStatus === "active") subscriptions[subscriptionId].status = "disabled";
+        else subscriptions[subscriptionId].status = "active";
         this.setState({subscriptions: subscriptions});
     };
 
@@ -50,7 +57,7 @@ class App extends Component {
                             subscriptions={this.state.subscriptions}
                             onReset={this.handleReset}
                             onIncrement={this.handleIncrement}
-                            onDelete={this.handleDelete}
+                            onActivation={this.handleActivation}
                         />
                     </div>
                 </div>
